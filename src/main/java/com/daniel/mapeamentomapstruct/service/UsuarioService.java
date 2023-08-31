@@ -56,4 +56,12 @@ public class UsuarioService {
         return UsuarioMapper.INSTANCE.toDTO(usuarioRepository.save(usuario));
     }
 
+    // Método para deletar usuário - busca por id
+    public void delete(Long id){
+        if(!usuarioRepository.existsById(id)){
+            throw new ResourceNotFoundException("Não existe usuário com esse id!");
+        }
+       
+        usuarioRepository.deleteById(id);
+    }
 }

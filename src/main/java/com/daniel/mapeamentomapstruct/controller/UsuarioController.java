@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,10 +45,18 @@ public class UsuarioController {
         return ResponseEntity.ok(findByIdUser);
     }
 
-     // (Endpoint get) método http buscar por id um usuário - http://localhost:8080/usuarios/{id}
+     // (Endpoint put) método http buscar por id um usuário - http://localhost:8080/usuarios/{id}
      @PutMapping("/{id}")
      public ResponseEntity<UsuarioDTO> updateUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
         UsuarioDTO updateUser = usuarioService.update(id, usuarioDTO);
         return ResponseEntity.ok(updateUser);
      }
+
+     // (Endpoint delete) método http deletar usuário por id - http://localhost:8080/usuarios/{id}
+     @DeleteMapping("/{id}")
+     public ResponseEntity<Void> deleteUsuario(@PathVariable Long id){
+        usuarioService.delete(id);
+        return ResponseEntity.noContent().build();
+     }
+
 }

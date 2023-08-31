@@ -79,3 +79,21 @@ da classe `UsuarioMapper` para cada elemento da lista durante a operação de ma
 
 Em resumo, os dois pontos duplos `::` são uma maneira concisa e mais legível de referenciar um método para ser usado como argumento em outras 
 partes do código. Isso torna o código mais claro e menos verboso.
+
+---------------------------------------------------------------------------- // ----------------------------------------------------------------------------
+
+Bom saber para não esquecer:
+
+1. ResponseEntity: É uma classe do Spring Framework que representa uma resposta HTTP personalizada. Ela permite definir o status, cabeçalhos e 
+   corpo da resposta.
+
+2. noContent(): É um método estático da classe ResponseEntity que cria uma instância de resposta com o status 204 No Content. Isso indica que a 
+   requisição foi bem-sucedida, mas não há conteúdo para ser retornado.
+
+3. build(): É um método que finaliza a construção da instância de ResponseEntity e a retorna.
+
+4. status(HttpStatus.CREATED): Este é um método estático da classe ResponseEntity que permite definir o status HTTP da resposta. No caso, 
+   HttpStatus.CREATED indica o status 201 Created, que é comumente usado para indicar que um recurso foi criado com sucesso.
+
+5. body(createdUser): Este é um método que permite definir o corpo da resposta. No exemplo, createdUser é o objeto que você deseja enviar como 
+   parte da resposta. Pode ser um DTO ou a própria entidade, dependendo da sua abordagem de design.
