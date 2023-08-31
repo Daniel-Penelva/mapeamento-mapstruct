@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,4 +43,11 @@ public class UsuarioController {
         UsuarioDTO findByIdUser = usuarioService.findById(id);
         return ResponseEntity.ok(findByIdUser);
     }
+
+     // (Endpoint get) método http buscar por id um usuário - http://localhost:8080/usuarios/{id}
+     @PutMapping("/{id}")
+     public ResponseEntity<UsuarioDTO> updateUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
+        UsuarioDTO updateUser = usuarioService.update(id, usuarioDTO);
+        return ResponseEntity.ok(updateUser);
+     }
 }

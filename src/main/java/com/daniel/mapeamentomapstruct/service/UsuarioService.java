@@ -42,4 +42,18 @@ public class UsuarioService {
                 .orElseThrow(()-> new ResourceNotFoundException("Usuário not found!"));
         return UsuarioMapper.INSTANCE.toDTO(usuario);
     }
+
+    // Método para editar usuário - busca por id
+    public UsuarioDTO update(Long id, UsuarioDTO usuarioDTO){
+        
+        if(!usuarioRepository.existsById(id)){
+            throw new ResourceNotFoundException("Não existe usuário com esse id!");
+        }
+        
+        Usuario usuario = UsuarioMapper.INSTANCE.toEntity(usuarioDTO);
+        usuario.setId(id);
+
+        return UsuarioMapper.INSTANCE.toDTO(usuarioRepository.save(usuario));
+    }
+
 }
