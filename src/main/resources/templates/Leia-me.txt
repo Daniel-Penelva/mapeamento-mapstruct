@@ -53,5 +53,29 @@ Isso pode ser útil em situações onde você deseja inicializar todos os campos
 Em resumo, a anotação @AllArgsConstructor do Lombok automatiza a criação de um construtor que aceita todos os campos da classe como argumentos, 
 economizando tempo e reduzindo a verbosidade do código.
 
+---------------------------------------------------------------------------- // ----------------------------------------------------------------------------
 
+Para aprendizagem:
 
+```
+return usuarios.stream().map(UsuarioMapper.INSTANCE:: toDTO).collect(Collectors.toList());
+```
+
+Os dois pontos duplos `::` são uma notação usada em Java para fazer referência a um método, sem chamá-lo explicitamente. É conhecida como 
+referência de método ou método de referência. Isso é uma característica introduzida no Java 8 e é usada para simplificar o código quando você 
+deseja passar um método como argumento para outro método.
+
+No contexto de mapeamento usando o MapStruct (ou qualquer lugar em que seja necessário passar um método como argumento), a notação 
+`UsuarioMapper.INSTANCE::toDTO` é usada para referenciar o método `toDTO` da instância `INSTANCE` da classe `UsuarioMapper`.
+
+O equivalente usando uma lambda (antes do Java 8) seria algo assim:
+
+```
+.map(usuario -> UsuarioMapper.INSTANCE.toDTO(usuario))
+```
+
+Com a notação de referência de método (`UsuarioMapper.INSTANCE::toDTO`), você está indicando ao compilador que ele deve chamar o método `toDTO` 
+da classe `UsuarioMapper` para cada elemento da lista durante a operação de mapeamento.
+
+Em resumo, os dois pontos duplos `::` são uma maneira concisa e mais legível de referenciar um método para ser usado como argumento em outras 
+partes do código. Isso torna o código mais claro e menos verboso.

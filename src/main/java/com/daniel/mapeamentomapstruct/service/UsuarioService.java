@@ -1,5 +1,8 @@
 package com.daniel.mapeamentomapstruct.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.daniel.mapeamentomapstruct.mapper.UsuarioMapper;
@@ -22,5 +25,15 @@ public class UsuarioService {
         usuario = usuarioRepository.save(usuario);
         return UsuarioMapper.INSTANCE.toDTO(usuario);
     }
+
+    // Método buscar todos os usuário
+    public List<UsuarioDTO> getAllUsuarios(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.stream().map(UsuarioMapper.INSTANCE:: toDTO).collect(Collectors.toList());
+
+        // Para didática -> Isso aqui: .map(UsuarioMapper.INSTANCE:: toDTO) equivale a .map(usuario -> UsuarioMapper.INSTANCE.toDTO(usuario)
+    }
+
+    
     
 }
