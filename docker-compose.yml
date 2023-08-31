@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:latest
+    container_name: mapstruct_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"  # Mapeando a porta do host (3307) para a porta padrão do MySQL (3306) no contêiner
+    volumes:
+      - mapstruct_mysql_data:/var/lib/mysql
+volumes:
+  mapstruct_mysql_data:

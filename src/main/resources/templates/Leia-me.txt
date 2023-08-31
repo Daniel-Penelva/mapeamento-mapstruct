@@ -1,0 +1,14 @@
+Comandos do Docker Compose:
+
+-> CTRL + C (ou docker-compose stop): Para parar a execução do container do docker
+-> docker-compose up: Cria e inicia os containers definidos no arquivo docker-compose.yml.
+-> docker-compose down: Para e remove os containers definidos no arquivo docker-compose.yml.
+-> docker-compose ps: Lista os containers gerenciados pelo Docker Compose.
+-> docker-compose logs: Exibe os logs dos containers gerenciados pelo Docker Compose.
+-> docker-compose build: Constrói os serviços definidos no arquivo docker-compose.yml.
+-> docker-compose start: Inicia os containers dos serviços definidos no arquivo docker-compose.yml.
+-> docker-compose stop: Para os containers dos serviços definidos no arquivo docker-compose.yml.
+-> docker-compose restart: Reinicia os containers dos serviços definidos no arquivo docker-compose.yml.
+-> docker ps: Lista os conatiners que estão sendo executados no momento no docker.
+-> docker ps: Lista os containers em execução no momento.
+-> docker ps -a: Lista todos os containers, incluindo os que estão parados.
