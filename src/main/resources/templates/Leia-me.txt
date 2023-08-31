@@ -12,3 +12,46 @@ Comandos do Docker Compose:
 -> docker ps: Lista os conatiners que estão sendo executados no momento no docker.
 -> docker ps: Lista os containers em execução no momento.
 -> docker ps -a: Lista todos os containers, incluindo os que estão parados.
+
+---------------------------------------------------------------------------- // ----------------------------------------------------------------------------
+Anotação @RequiredArgsConstructor
+
+A anotação @RequiredArgsConstructor é uma anotação do Lombok que automaticamente gera um construtor com argumentos para os campos marcados como 
+final ou @NonNull. Isso ajuda a reduzir a necessidade de escrever construtores repetitivos, melhorando a legibilidade do código.
+
+Quando coloca a anotação @RequiredArgsConstructor em uma classe, o Lombok automaticamente cria um construtor que aceita todos os campos marcados 
+como final ou @NonNull como argumentos. Isso pode ser especialmente útil em classes de serviço, onde você precisa injetar dependências no 
+construtor.
+
+```
+@Service
+@RequiredArgsConstructor
+public class UserService {
+    private final UserRepository userRepository;
+
+    // ...
+}
+```
+
+Nesse exemplo, o Lombok criará automaticamente um construtor que aceita um argumento do tipo UserRepository, porque o campo userRepository é 
+marcado como final. Dessa forma, não precisa escrever o construtor manualmente.
+
+Em resumo, a anotação @RequiredArgsConstructor ajuda a reduzir a verbosidade do código gerando automaticamente um construtor com argumentos para 
+campos final ou @NonNull.
+
+---------------------------------------------------------------------------- // ----------------------------------------------------------------------------
+
+Anotação @AllArgsConstructor
+
+A anotação @AllArgsConstructor é outra anotação do Lombok que gera automaticamente um construtor que aceita todos os campos da classe como 
+argumentos. Essa anotação cria um construtor que inicializa todos os campos da classe, tornando mais fácil criar objetos preenchidos sem a 
+necessidade de escrever construtores manualmente.
+
+Quando você coloca a anotação @AllArgsConstructor em uma classe, o Lombok cria um construtor que aceita como argumentos todos os campos da classe. 
+Isso pode ser útil em situações onde você deseja inicializar todos os campos da classe ao criar um objeto.
+
+Em resumo, a anotação @AllArgsConstructor do Lombok automatiza a criação de um construtor que aceita todos os campos da classe como argumentos, 
+economizando tempo e reduzindo a verbosidade do código.
+
+
+
